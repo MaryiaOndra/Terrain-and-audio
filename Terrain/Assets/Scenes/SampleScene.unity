@@ -670,6 +670,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -748,6 +749,14 @@ Transform:
   m_Father: {fileID: 1170604863}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 4.93, y: 0, z: 0}
+--- !u!81 &963194229
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
 --- !u!4 &997566498 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3149452312239668554, guid: 8d465436981ff2946a5ff82899ed0828,
@@ -798,7 +807,8 @@ MonoBehaviour:
   spherePrefab: {fileID: 6590024252335284869, guid: d0dd2bd06fc8a884da4e4fde29bc32ba,
     type: 3}
   verticalTr: {fileID: 963194228}
-  speed: 5
+  walkSpeed: 7
+  runSpeed: 20
   jumpForce: 5
   shootForce: 50
   rechargeTime: 0.5
@@ -978,14 +988,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!81 &1170604865
-AudioListener:
+--- !u!114 &1170604865
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170604858}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b6fd119bf700343b4a296a755836c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runClip: {fileID: 0}
+  walkClip: {fileID: 8300000, guid: 4e47d99eb337d9b459136bc62cfff5ed, type: 3}
+  shootClip: {fileID: 0}
 --- !u!4 &1313322644 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4599866046254600463, guid: 3ed485b98833de146b5042f363e30406,

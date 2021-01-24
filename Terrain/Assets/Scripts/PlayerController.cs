@@ -7,20 +7,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform spherePoint;
     [SerializeField] GameObject spherePrefab;
     [SerializeField] Transform verticalTr;
-    [SerializeField] float speed;
+    [SerializeField] float walkSpeed;
+    [SerializeField] float runSpeed;
     [SerializeField] float jumpForce;
     [SerializeField] float shootForce;
     [SerializeField] float rechargeTime;
 
     CharacterController chController;
+    SoundPlayer soundPlayer;
     Vector3 speedVector;
 
-    float vertivalSpeed;
+    float verticalSpeed;
     float shootTimer;
+    float moveSpeed;
 
     void Awake() 
     {
         chController = GetComponent<CharacterController>();
+        soundPlayer = GetComponent<SoundPlayer>();
     }
 
     void Start()
@@ -51,17 +55,27 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            moveSpeed = runSpeed;
+            soundPlayer.Run();
+        }
+        else
+        {
+            moveSpeed = walkSpeed;
+            soundPlayer.Walk();
+        }
+
         float _vertical = Input.GetAxis("Vertical");
         float _horisontal = Input.GetAxis("Horizontal");
 
-        speedVector = transform.forward * _vertical * speed * Time.deltaTime + transform.right * _horisontal * speed * Time.deltaTime;
-
+        speedVector = transform.forward * _vertical * moveSpeed * Time.deltaTime + transform.right * _horisontal * moveSpeed * Time.deltaTime;
     }
 
     void Jump() 
     {
-        vertivalSpeed = chController.velocity.y;
-        vertivalSpeed += Physics.gravity.y * Time.deltaTime;
+        verticalSpeed = chController.velocity.y;
+        verticalSpeed += Physics.gravity.y * Time.deltaTime;
 
         if (shootTimer > 0)
         {
@@ -74,10 +88,10 @@ public class PlayerController : MonoBehaviour
 
         if (_jumpAxis > 0 && chController.isGrounded)
         {
-            vertivalSpeed = jumpForce;
+            verticalSpeed = jumpForce;
         }
 
-        speedVector += transform.up * vertivalSpeed * Time.deltaTime;
+        speedVector += transform.up * verticalSpeed * Time.deltaTime;
     }
 
     void Shoot()
@@ -90,6 +104,8 @@ public class PlayerController : MonoBehaviour
             _sphereRgBd.transform.rotation = spherePoint.rotation;
 
             _sphereRgBd.AddForce(_sphereRgBd.transform.forward * shootForce, ForceMode.Impulse);
+
+            soundPlayer.Shoot();
 
             shootTimer = rechargeTime;
         }
