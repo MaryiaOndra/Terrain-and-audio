@@ -14,17 +14,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float rechargeTime;
 
     CharacterController chController;
-    SoundPlayer soundPlayer;
     Vector3 speedVector;
+    LauncherBhv launcher;
 
     float verticalSpeed;
     float shootTimer;
     float moveSpeed;
 
+    public bool IsMoving { get; private set; }
+    public bool IsRunning { get; private set; }
+    bool IsRecharge => shootTimer > 0;
+
     void Awake() 
     {
         chController = GetComponent<CharacterController>();
-        soundPlayer = GetComponent<SoundPlayer>();
+        launcher = GetComponentInChildren<LauncherBhv>();
     }
 
     void Start()
@@ -55,15 +59,21 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
+        if (chController.velocity.x != 0)
+            IsMoving = true;
+        else
+            IsMoving = false;
+        
+
         if (Input.GetKey(KeyCode.LeftShift))
         {
             moveSpeed = runSpeed;
-            soundPlayer.Run();
+            IsRunning = true;
         }
         else
         {
             moveSpeed = walkSpeed;
-            soundPlayer.Walk();
+            IsRunning = false;
         }
 
         float _vertical = Input.GetAxis("Vertical");
@@ -75,7 +85,26 @@ public class PlayerController : MonoBehaviour
     void Jump() 
     {
         verticalSpeed = chController.velocity.y;
+        float _jumpAxis = Input.GetAxis("Jump");
+
+        if (chController.isGrounded && verticalSpeed < 0)
+        {
+            //verticalSpeed = Physics.gravity.y;
+            verticalSpeed = 0f;
+        }     
+
+        if (_jumpAxis > 0 && chController.isGrounded)
+        {
+            verticalSpeed = jumpForce;
+        }
+
         verticalSpeed += Physics.gravity.y * Time.deltaTime;
+        speedVector += transform.up * verticalSpeed * Time.deltaTime;
+    }
+
+    void Shoot()
+    {
+        float _fireAxis = Input.GetAxis("Fire1");
 
         if (shootTimer > 0)
         {
@@ -84,19 +113,6 @@ public class PlayerController : MonoBehaviour
                 shootTimer = 0;
         }
 
-        float _jumpAxis = Input.GetAxis("Jump");
-
-        if (_jumpAxis > 0 && chController.isGrounded)
-        {
-            verticalSpeed = jumpForce;
-        }
-
-        speedVector += transform.up * verticalSpeed * Time.deltaTime;
-    }
-
-    void Shoot()
-    {
-        float _fireAxis = Input.GetAxis("Fire1");
         if (_fireAxis > 0 && !IsRecharge)
         { 
             Rigidbody _sphereRgBd = Instantiate(spherePrefab).GetComponent<Rigidbody>();
@@ -105,12 +121,10 @@ public class PlayerController : MonoBehaviour
 
             _sphereRgBd.AddForce(_sphereRgBd.transform.forward * shootForce, ForceMode.Impulse);
 
-            soundPlayer.Shoot();
+            launcher.LauncherAudioSourse.Play();
 
             shootTimer = rechargeTime;
         }
     }
-
-    bool IsRecharge => shootTimer > 0;
 
 }

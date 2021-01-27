@@ -41,6 +41,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1607140973950894615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229709993784308622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a99d6017d832c8b42939ec3b8e020bd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &646252603778987528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48,6 +60,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6585066074695818807}
     m_Modifications:
+    - target: {fileID: 1486389041048774417, guid: 4b16c5f1879096a45a6d5adda4f47a01,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4005572563169763941, guid: 4b16c5f1879096a45a6d5adda4f47a01,
         type: 3}
       propertyPath: m_Name
@@ -123,6 +140,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6585066074695818807}
     m_Modifications:
+    - target: {fileID: -263850139238928110, guid: 8c5266e67185f1848924197b397a5bfe,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 979028238832754658, guid: 8c5266e67185f1848924197b397a5bfe,
         type: 3}
       propertyPath: m_Name
@@ -198,6 +220,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6585066074695818807}
     m_Modifications:
+    - target: {fileID: -263850139238928110, guid: 8c5266e67185f1848924197b397a5bfe,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 979028238832754658, guid: 8c5266e67185f1848924197b397a5bfe,
         type: 3}
       propertyPath: m_Name
@@ -273,6 +300,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6585066074695818807}
     m_Modifications:
+    - target: {fileID: -263850139238928110, guid: 8c5266e67185f1848924197b397a5bfe,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 979028238832754658, guid: 8c5266e67185f1848924197b397a5bfe,
         type: 3}
       propertyPath: m_Name
@@ -348,6 +380,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6585066074695818807}
     m_Modifications:
+    - target: {fileID: 1486389041048774417, guid: 4b16c5f1879096a45a6d5adda4f47a01,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4005572563169763941, guid: 4b16c5f1879096a45a6d5adda4f47a01,
         type: 3}
       propertyPath: m_Name
@@ -423,6 +460,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6585066074695818807}
     m_Modifications:
+    - target: {fileID: -263850139238928110, guid: 8c5266e67185f1848924197b397a5bfe,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 979028238832754658, guid: 8c5266e67185f1848924197b397a5bfe,
         type: 3}
       propertyPath: m_Name
@@ -485,6 +527,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c5266e67185f1848924197b397a5bfe, type: 3}
+--- !u!1 &5229709993784308622 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 979028238832754658, guid: 8c5266e67185f1848924197b397a5bfe,
+    type: 3}
+  m_PrefabInstance: {fileID: 4973554506406112364}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5229709993784471470 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 979028238832780226, guid: 8c5266e67185f1848924197b397a5bfe,
@@ -498,6 +546,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6585066074695818807}
     m_Modifications:
+    - target: {fileID: 1486389041048774417, guid: 4b16c5f1879096a45a6d5adda4f47a01,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4005572563169763941, guid: 4b16c5f1879096a45a6d5adda4f47a01,
         type: 3}
       propertyPath: m_Name
@@ -573,6 +626,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6585066074695818807}
     m_Modifications:
+    - target: {fileID: 1486389041048774417, guid: 4b16c5f1879096a45a6d5adda4f47a01,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4005572563169763941, guid: 4b16c5f1879096a45a6d5adda4f47a01,
         type: 3}
       propertyPath: m_Name
@@ -648,6 +706,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6585066074695818807}
     m_Modifications:
+    - target: {fileID: -263850139238928110, guid: 8c5266e67185f1848924197b397a5bfe,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 979028238832754658, guid: 8c5266e67185f1848924197b397a5bfe,
         type: 3}
       propertyPath: m_Name
@@ -738,6 +801,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6585066074695818807}
     m_Modifications:
+    - target: {fileID: -263850139238928110, guid: 8c5266e67185f1848924197b397a5bfe,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 979028238832754658, guid: 8c5266e67185f1848924197b397a5bfe,
         type: 3}
       propertyPath: m_Name
@@ -813,6 +881,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6585066074695818807}
     m_Modifications:
+    - target: {fileID: 1486389041048774417, guid: 4b16c5f1879096a45a6d5adda4f47a01,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4005572563169763941, guid: 4b16c5f1879096a45a6d5adda4f47a01,
         type: 3}
       propertyPath: m_Name
