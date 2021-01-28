@@ -2,129 +2,132 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+namespace TerrainLightAudio
 {
-    [SerializeField] Transform spherePoint;
-    [SerializeField] GameObject spherePrefab;
-    [SerializeField] Transform verticalTr;
-    [SerializeField] float walkSpeed;
-    [SerializeField] float runSpeed;
-    [SerializeField] float jumpForce;
-    [SerializeField] float shootForce;
-    [SerializeField] float rechargeTime;
-
-    CharacterController chController;
-    Vector3 speedVector;
-    LauncherBhv launcher;
-
-    float verticalSpeed;
-    float shootTimer;
-    float moveSpeed;
-
-    public bool IsMoving { get; private set; }
-    public bool IsRunning { get; private set; }
-    bool IsRecharge => shootTimer > 0;
-
-    void Awake() 
+    public class PlayerController : MonoBehaviour
     {
-        chController = GetComponent<CharacterController>();
-        launcher = GetComponentInChildren<LauncherBhv>();
-    }
+        [SerializeField] Transform spherePoint;
+        [SerializeField] GameObject spherePrefab;
+        [SerializeField] Transform verticalTr;
+        [SerializeField] float walkSpeed;
+        [SerializeField] float runSpeed;
+        [SerializeField] float jumpForce;
+        [SerializeField] float shootForce;
+        [SerializeField] float rechargeTime;
 
-    void Start()
-    {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
+        CharacterController chController;
+        Vector3 speedVector;
+        LauncherBhv launcher;
 
+        float verticalSpeed;
+        float shootTimer;
+        float moveSpeed;
 
-    void Update()
-    {
-        ControlMouse();
-        Move();
-        Jump();
-        Shoot();
+        public bool IsMoving { get; private set; }
+        public bool IsRunning { get; private set; }
+        bool IsRecharge => shootTimer > 0;
 
-        chController.Move(speedVector);
-    }
-
-    void ControlMouse()
-    {
-        float _mouseX = Input.GetAxis("Mouse X");
-        float _mouseY = Input.GetAxis("Mouse Y") * -1;
-
-        chController.transform.Rotate(Vector3.up, _mouseX);
-        verticalTr.Rotate(Vector3.right, _mouseY, Space.Self);
-    }
-
-    void Move()
-    {
-        if (chController.velocity.x != 0)
-            IsMoving = true;
-        else
-            IsMoving = false;
-        
-
-        if (Input.GetKey(KeyCode.LeftShift))
+        void Awake()
         {
-            moveSpeed = runSpeed;
-            IsRunning = true;
-        }
-        else
-        {
-            moveSpeed = walkSpeed;
-            IsRunning = false;
+            chController = GetComponent<CharacterController>();
+            launcher = GetComponentInChildren<LauncherBhv>();
         }
 
-        float _vertical = Input.GetAxis("Vertical");
-        float _horisontal = Input.GetAxis("Horizontal");
-
-        speedVector = transform.forward * _vertical * moveSpeed * Time.deltaTime + transform.right * _horisontal * moveSpeed * Time.deltaTime;
-    }
-
-    void Jump() 
-    {
-        verticalSpeed = chController.velocity.y;
-        float _jumpAxis = Input.GetAxis("Jump");
-
-        if (chController.isGrounded && verticalSpeed < 0)
+        void Start()
         {
-            //verticalSpeed = Physics.gravity.y;
-            verticalSpeed = 0f;
-        }     
-
-        if (_jumpAxis > 0 && chController.isGrounded)
-        {
-            verticalSpeed = jumpForce;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
-        verticalSpeed += Physics.gravity.y * Time.deltaTime;
-        speedVector += transform.up * verticalSpeed * Time.deltaTime;
-    }
 
-    void Shoot()
-    {
-        float _fireAxis = Input.GetAxis("Fire1");
-
-        if (shootTimer > 0)
+        void Update()
         {
-            shootTimer -= Time.deltaTime;
-            if (shootTimer < 0)
-                shootTimer = 0;
+            ControlMouse();
+            Move();
+            Jump();
+            Shoot();
+
+            chController.Move(speedVector);
         }
 
-        if (_fireAxis > 0 && !IsRecharge)
-        { 
-            Rigidbody _sphereRgBd = Instantiate(spherePrefab).GetComponent<Rigidbody>();
-            _sphereRgBd.transform.position = spherePoint.position;
-            _sphereRgBd.transform.rotation = spherePoint.rotation;
+        void ControlMouse()
+        {
+            float _mouseX = Input.GetAxis("Mouse X");
+            float _mouseY = Input.GetAxis("Mouse Y") * -1;
 
-            _sphereRgBd.AddForce(_sphereRgBd.transform.forward * shootForce, ForceMode.Impulse);
-
-            launcher.LauncherAudioSourse.Play();
-
-            shootTimer = rechargeTime;
+            chController.transform.Rotate(Vector3.up, _mouseX);
+            verticalTr.Rotate(Vector3.right, _mouseY, Space.Self);
         }
+
+        void Move()
+        {
+            if (chController.velocity.x != 0)
+                IsMoving = true;
+            else
+                IsMoving = false;
+
+
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                moveSpeed = runSpeed;
+                IsRunning = true;
+            }
+            else
+            {
+                moveSpeed = walkSpeed;
+                IsRunning = false;
+            }
+
+            float _vertical = Input.GetAxis("Vertical");
+            float _horisontal = Input.GetAxis("Horizontal");
+
+            speedVector = transform.forward * _vertical * moveSpeed * Time.deltaTime + transform.right * _horisontal * moveSpeed * Time.deltaTime;
+        }
+
+        void Jump()
+        {
+            verticalSpeed = chController.velocity.y;
+            float _jumpAxis = Input.GetAxis("Jump");
+
+            if (chController.isGrounded && verticalSpeed < 0)
+            {
+                //verticalSpeed = Physics.gravity.y;
+                verticalSpeed = 0f;
+            }
+
+            if (_jumpAxis > 0 && chController.isGrounded)
+            {
+                verticalSpeed = jumpForce;
+            }
+
+            verticalSpeed += Physics.gravity.y * Time.deltaTime;
+            speedVector += transform.up * verticalSpeed * Time.deltaTime;
+        }
+
+        void Shoot()
+        {
+            float _fireAxis = Input.GetAxis("Fire1");
+
+            if (shootTimer > 0)
+            {
+                shootTimer -= Time.deltaTime;
+                if (shootTimer < 0)
+                    shootTimer = 0;
+            }
+
+            if (_fireAxis > 0 && !IsRecharge)
+            {
+                Rigidbody _sphereRgBd = Instantiate(spherePrefab).GetComponent<Rigidbody>();
+                _sphereRgBd.transform.position = spherePoint.position;
+                _sphereRgBd.transform.rotation = spherePoint.rotation;
+
+                _sphereRgBd.AddForce(_sphereRgBd.transform.forward * shootForce, ForceMode.Impulse);
+
+                launcher.LauncherAudioSourse.Play();
+
+                shootTimer = rechargeTime;
+            }
+        }
+
     }
-
 }

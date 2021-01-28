@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
 
-public class DroppedObject : MonoBehaviour
+namespace TerrainLightAudio
 {
-   public bool IsDropped { get; private set; }
-
-    private void OnTriggerEnter(Collider other)
+    public class DroppedObject : MonoBehaviour
     {
-        if (!IsDropped)
+        public bool IsDropped { get; private set; }
+
+        private void OnTriggerEnter(Collider other)
         {
-            IsDropped = true;
+            if (!IsDropped)
+            {
+                IsDropped = true;
+            }
         }
     }
 }

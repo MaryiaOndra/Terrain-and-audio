@@ -1,11 +1,14 @@
 ﻿
 using UnityEngine;
 
-public class RotateSkybox : MonoBehaviour
+namespace TerrainLightAudio
 {
-    [SerializeField] float rotationSpeed = 0.2f;
-    void Update()
+    public class RotateSkybox : MonoBehaviour
     {
-        RenderSettings.skybox.SetFloat("_Rotation", Time.time * rotationSpeed);
+        [SerializeField] float rotationSpeed = 0.2f;
+        void Update()
+        {
+            RenderSettings.skybox.SetFloat("_Rotation", Time.time * rotationSpeed);
+        }
     }
 }

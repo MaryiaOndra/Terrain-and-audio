@@ -2,36 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DroppedObjectsDetector : MonoBehaviour
+namespace TerrainLightAudio
 {
-    DroppedObject[] objectsToDrop;
-    int countDroppedObjects;
-
-    public bool IsAllObjectsDropped { get; private set; }
-
-    void Start()
+    public class DroppedObjectsDetector : MonoBehaviour
     {
-        objectsToDrop = GetComponentsInChildren<DroppedObject>();
-    }
+        DroppedObject[] objectsToDrop;
+        int countDroppedObjects;
 
-    void Update()
-    {
-        if (!IsAllObjectsDropped)
+        public bool IsAllObjectsDropped { get; private set; }
+
+        void Start()
         {
-            foreach (var level in objectsToDrop)
-            {
-                if (!level.IsDropped)
-                {
-                    countDroppedObjects = 0;
-                }
-                else
-                {
-                    countDroppedObjects++;
+            objectsToDrop = GetComponentsInChildren<DroppedObject>();
+        }
 
-                    if (countDroppedObjects == objectsToDrop.Length)
+        void Update()
+        {
+            if (!IsAllObjectsDropped)
+            {
+                foreach (var level in objectsToDrop)
+                {
+                    if (!level.IsDropped)
                     {
-                        IsAllObjectsDropped = true;
-                        Debug.Log("Youre complete this level");
+                        countDroppedObjects = 0;
+                    }
+                    else
+                    {
+                        countDroppedObjects++;
+
+                        if (countDroppedObjects == objectsToDrop.Length)
+                        {
+                            IsAllObjectsDropped = true;
+                            Debug.Log("Youre complete this level");
+                        }
                     }
                 }
             }

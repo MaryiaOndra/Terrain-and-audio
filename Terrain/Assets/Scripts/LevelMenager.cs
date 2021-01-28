@@ -3,43 +3,46 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelMenager : MonoBehaviour
+namespace TerrainLightAudio
 {
-    DroppedObjectsDetector[] levelsWithObjects;
-    bool IsAllLevelsDone;
-    int countLevels;
-
-    void Start()
+    public class LevelMenager : MonoBehaviour
     {
-        levelsWithObjects = GetComponentsInChildren<DroppedObjectsDetector>();
-    }
+        DroppedObjectsDetector[] levelsWithObjects;
+        bool IsAllLevelsDone;
+        int countLevels;
 
-    void Update()
-    {
-        if (!IsAllLevelsDone)
+        void Start()
         {
-            foreach (var level in levelsWithObjects)
-            {
-                if (!level.IsAllObjectsDropped)
-                {
-                    countLevels = 0;
-                }
-                else
-                {
-                    countLevels++;
+            levelsWithObjects = GetComponentsInChildren<DroppedObjectsDetector>();
+        }
 
-                    if (countLevels == levelsWithObjects.Length - 1)
+        void Update()
+        {
+            if (!IsAllLevelsDone)
+            {
+                foreach (var level in levelsWithObjects)
+                {
+                    if (!level.IsAllObjectsDropped)
                     {
-                        IsAllLevelsDone = true;
+                        countLevels = 0;
                     }
+                    else
+                    {
+                        countLevels++;
+
+                        if (countLevels == levelsWithObjects.Length - 1)
+                        {
+                            IsAllLevelsDone = true;
+                        }
+                    }
+
                 }
-                    
+            }
+            else
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
-        else
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-    }
 
+    }
 }

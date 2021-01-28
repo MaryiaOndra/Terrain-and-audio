@@ -1,40 +1,43 @@
 ﻿using UnityEngine;
 
-public class PlayerAudioController : MonoBehaviour
+namespace TerrainLightAudio
 {
-    [SerializeField] AudioClip runClip;
-    [SerializeField] AudioClip walkClip;
-
-    AudioSource audioSource;
-    PlayerController playerController;
-
-    private void Start()
+    public class PlayerAudioController : MonoBehaviour
     {
-        audioSource = GetComponent<AudioSource>();
-        playerController = GetComponent<PlayerController>();
-    }
+        [SerializeField] AudioClip runClip;
+        [SerializeField] AudioClip walkClip;
 
-    private void Update()
-    {
-        if (playerController.IsMoving)
+        AudioSource audioSource;
+        PlayerController playerController;
+
+        private void Start()
         {
-            if (!playerController.IsRunning)
-            {
-                audioSource.clip = walkClip;
-            }
-            else 
-            {
-                audioSource.clip = runClip;
-            }
-
-            if (!audioSource.isPlaying)
-            {
-                audioSource.Play();
-            }
+            audioSource = GetComponent<AudioSource>();
+            playerController = GetComponent<PlayerController>();
         }
-        else
+
+        private void Update()
         {
-            audioSource.Stop();
+            if (playerController.IsMoving)
+            {
+                if (!playerController.IsRunning)
+                {
+                    audioSource.clip = walkClip;
+                }
+                else
+                {
+                    audioSource.clip = runClip;
+                }
+
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.Play();
+                }
+            }
+            else
+            {
+                audioSource.Stop();
+            }
         }
     }
 }
