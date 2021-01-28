@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace TerrainLightAudio
 {
+    [RequireComponent(typeof (CharacterController))]
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] Transform spherePoint;
@@ -91,11 +92,11 @@ namespace TerrainLightAudio
 
             if (chController.isGrounded && verticalSpeed < 0)
             {
-                //verticalSpeed = Physics.gravity.y;
-                verticalSpeed = 0f;
+                verticalSpeed = Physics.gravity.y;
+                //verticalSpeed = 0f;
             }
 
-            if (_jumpAxis > 0 && chController.isGrounded)
+            if (chController.isGrounded && _jumpAxis > 0)
             {
                 verticalSpeed = jumpForce;
             }

@@ -34,11 +34,11 @@ RenderSettings:
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
-  m_ReflectionBounces: 1
+  m_ReflectionBounces: 2
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1696443821}
-  m_IndirectSpecularColor: {r: 0.2292054, g: 0.23228201, b: 0.26858845, a: 1}
+  m_IndirectSpecularColor: {r: 0.22826609, g: 0.23131812, b: 0.26748386, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -56,30 +56,31 @@ LightmapSettings:
   m_LightmapEditorSettings:
     serializedVersion: 12
     m_Resolution: 2
-    m_BakeResolution: 40
-    m_AtlasSize: 1024
-    m_AO: 0
+    m_BakeResolution: 30
+    m_AtlasSize: 2048
+    m_AO: 1
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
     m_ExtractAmbientOcclusion: 0
     m_Padding: 2
-    m_LightmapParameters: {fileID: 0}
+    m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000,
+      type: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
-    m_MixedBakeMode: 1
+    m_MixedBakeMode: 0
     m_BakeBackend: 1
     m_PVRSampling: 1
-    m_PVRDirectSampleCount: 32
-    m_PVRSampleCount: 500
+    m_PVRDirectSampleCount: 64
+    m_PVRSampleCount: 256
     m_PVRBounces: 2
-    m_PVREnvironmentSampleCount: 500
+    m_PVREnvironmentSampleCount: 64
     m_PVREnvironmentReferencePointCount: 2048
-    m_PVRFilteringMode: 2
+    m_PVRFilteringMode: 1
     m_PVRDenoiserTypeDirect: 0
     m_PVRDenoiserTypeIndirect: 0
     m_PVRDenoiserTypeAO: 0
@@ -96,8 +97,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
-    m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: a11c58cb19b386a4ea7b82e420664431,
+    m_LightProbeSampleCountMultiplier: 8
+  m_LightingDataAsset: {fileID: 112000000, guid: 23fabbdb449af664e9196b1aabc9c686,
     type: 2}
   m_UseShadowmask: 0
 --- !u!196 &4
@@ -234,7 +235,7 @@ PrefabInstance:
     - target: {fileID: 688303163848270620, guid: 3ed485b98833de146b5042f363e30406,
         type: 3}
       propertyPath: m_Name
-      value: StreetLamp1_Tall (Wood) (4)
+      value: 'StreetLamp1_Tall (Wood) '
       objectReference: {fileID: 0}
     - target: {fileID: 4599866046254600463, guid: 3ed485b98833de146b5042f363e30406,
         type: 3}
@@ -570,6 +571,66 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1414505229799856181, guid: 55aaac7ad4fd22d4d9219164f79d8726,
+        type: 3}
+      propertyPath: MinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414505229799856181, guid: 55aaac7ad4fd22d4d9219164f79d8726,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414505229799856181, guid: 55aaac7ad4fd22d4d9219164f79d8726,
+        type: 3}
+      propertyPath: rolloffMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414505229799856181, guid: 55aaac7ad4fd22d4d9219164f79d8726,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].time
+      value: 0.97206116
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414505229799856181, guid: 55aaac7ad4fd22d4d9219164f79d8726,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inSlope
+      value: -0.35271022
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414505229799856181, guid: 55aaac7ad4fd22d4d9219164f79d8726,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outSlope
+      value: -0.35271022
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414505229799856181, guid: 55aaac7ad4fd22d4d9219164f79d8726,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inWeight
+      value: 0.13217866
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414505229799856181, guid: 55aaac7ad4fd22d4d9219164f79d8726,
+        type: 3}
+      propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414505229799856181, guid: 55aaac7ad4fd22d4d9219164f79d8726,
+        type: 3}
+      propertyPath: DopplerLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414505229799856181, guid: 55aaac7ad4fd22d4d9219164f79d8726,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414505229799856181, guid: 55aaac7ad4fd22d4d9219164f79d8726,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414505229799856181, guid: 55aaac7ad4fd22d4d9219164f79d8726,
+        type: 3}
+      propertyPath: BypassReverbZones
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1701974593037072130, guid: 55aaac7ad4fd22d4d9219164f79d8726,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -891,7 +952,7 @@ PrefabInstance:
     - target: {fileID: 688303163848270620, guid: 3ed485b98833de146b5042f363e30406,
         type: 3}
       propertyPath: m_Name
-      value: StreetLamp1_Tall (Wood) (1)
+      value: StreetLamp1_Tall (Wood)
       objectReference: {fileID: 0}
     - target: {fileID: 4599866046254600463, guid: 3ed485b98833de146b5042f363e30406,
         type: 3}
@@ -2077,7 +2138,7 @@ PrefabInstance:
     - target: {fileID: 688303163848270620, guid: 3ed485b98833de146b5042f363e30406,
         type: 3}
       propertyPath: m_Name
-      value: StreetLamp1_Tall (Wood) (2)
+      value: StreetLamp1_Tall (Wood)
       objectReference: {fileID: 0}
     - target: {fileID: 4599866046254600463, guid: 3ed485b98833de146b5042f363e30406,
         type: 3}
@@ -2209,6 +2270,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6089866312472944608, guid: 3ed485b98833de146b5042f363e30406,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ed485b98833de146b5042f363e30406, type: 3}
 --- !u!1 &893693811
@@ -2312,7 +2378,7 @@ Terrain:
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
-  m_ScaleInLightmap: 0.0256
+  m_ScaleInLightmap: 0.015
   m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
   m_GroupingID: 0
   m_RenderingLayerMask: 1
@@ -3452,7 +3518,7 @@ PrefabInstance:
     - target: {fileID: 688303163848270620, guid: 3ed485b98833de146b5042f363e30406,
         type: 3}
       propertyPath: m_Name
-      value: StreetLamp1_Tall (Wood) (3)
+      value: 'StreetLamp1_Tall (Wood) '
       objectReference: {fileID: 0}
     - target: {fileID: 4599866046254600463, guid: 3ed485b98833de146b5042f363e30406,
         type: 3}
@@ -3533,7 +3599,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &1696443821
 Light:
   m_ObjectHideFlags: 0
@@ -3545,15 +3611,15 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.14901961, g: 0.1766198, b: 0.254717, a: 1}
+  m_Intensity: 0.7
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
-    m_Resolution: -1
+    m_Resolution: 0
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -3585,7 +3651,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -3594,7 +3660,7 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
-  m_ShadowAngle: 0
+  m_ShadowAngle: 30
 --- !u!4 &1696443822
 Transform:
   m_ObjectHideFlags: 0
@@ -3602,13 +3668,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1696443820}
-  m_LocalRotation: {x: 0.16964014, y: -0.25479627, z: 0.045454934, w: 0.9509127}
-  m_LocalPosition: {x: 478.1646, y: -4.824976, z: 494.16452}
+  m_LocalRotation: {x: 0.3550323, y: -0.24070199, z: 0.09513061, w: 0.8983122}
+  m_LocalPosition: {x: 475.4, y: 10, z: 498.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 20.23, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 43.13, y: -30, z: 0}
 --- !u!4 &1698226868 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 403640, guid: 197516cbd53895c4a884a452291fd503,
@@ -4011,7 +4077,7 @@ PrefabInstance:
     - target: {fileID: 688303163848270620, guid: 3ed485b98833de146b5042f363e30406,
         type: 3}
       propertyPath: m_Name
-      value: StreetLamp1_Tall (Wood) (1)
+      value: 'StreetLamp1_Tall (Wood) '
       objectReference: {fileID: 0}
     - target: {fileID: 4599866046254600463, guid: 3ed485b98833de146b5042f363e30406,
         type: 3}
