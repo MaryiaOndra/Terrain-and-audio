@@ -86,6 +86,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7843873bd9c3b8043a0ee72ad1c16c27, type: 2}
+    - target: {fileID: 75762582094302024, guid: b65d35e0b315a6440b37141a592130a6,
+        type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8596854384734776479, guid: b65d35e0b315a6440b37141a592130a6,
         type: 3}
       propertyPath: m_Name

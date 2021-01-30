@@ -108,19 +108,19 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 50afb032d6c2a5d45838acaa5a6b1108, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.03
+  m_PlayOnAwake: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 200
   DopplerLevel: 0
-  MinDistance: 1
-  MaxDistance: 3
+  MinDistance: 5
+  MaxDistance: 7
   Pan2D: 0
-  rolloffMode: 2
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -153,7 +153,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -283,7 +283,7 @@ Light:
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: -1, y: 8, z: 9, w: -10}
   m_UseBoundingSphereOverride: 0
-  m_ShadowRadius: 1
+  m_ShadowRadius: 2
   m_ShadowAngle: 0
 --- !u!1 &8839639192119515268
 GameObject:
