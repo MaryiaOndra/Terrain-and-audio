@@ -24,6 +24,7 @@ namespace TerrainLightAudio
         float shootTimer;
         float moveSpeed;
 
+        public bool IsGrounded { get; private set; }
         public bool IsMoving { get; private set; }
         public bool IsRunning { get; private set; }
         bool IsRecharge => shootTimer > 0;
@@ -62,7 +63,7 @@ namespace TerrainLightAudio
 
         void Move()
         {
-            if (chController.velocity.x != 0)
+            if (chController.velocity.x != 0 && chController.isGrounded)
                 IsMoving = true;
             else
                 IsMoving = false;
@@ -73,12 +74,12 @@ namespace TerrainLightAudio
                 moveSpeed = runSpeed;
                 IsRunning = true;
             }
-            else
+            else 
             {
                 moveSpeed = walkSpeed;
                 IsRunning = false;
             }
-
+  
             float _vertical = Input.GetAxis("Vertical");
             float _horisontal = Input.GetAxis("Horizontal");
 

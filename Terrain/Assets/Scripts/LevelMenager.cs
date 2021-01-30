@@ -30,7 +30,7 @@ namespace TerrainLightAudio
                     {
                         countLevels++;
 
-                        if (countLevels == levelsWithObjects.Length - 1)
+                        if (countLevels == levelsWithObjects.Length)
                         {
                             IsAllLevelsDone = true;
                         }
